@@ -25,20 +25,26 @@ Apply the Closing operation using cv2.morphologyEx() with the cv2.MORPH_CLOSE fl
 Developed by : BALAJI J
 Reg.no :212221243001
 # Import the necessary packages
+```
 import cv2
 import numpy as np
 image = np.zeros((300, 700), dtype="uint8")
-
+```
 # Create the Text using cv2.putText
+```
 cv2.putText(image, 'Opening & Closing', (30, 150), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 255, 255), 5)
-
+```
 # Create the structuring element
+```
 kernel = np.ones((5, 5), np.uint8)
+```
 
 # Use Opening operation
+```
 opened_image = cv2.morphologyEx(image, cv2.MORPH_OPEN, kernel)
-
+```
 # Use Closing Operation
+```
 closed_image = cv2.morphologyEx(image, cv2.MORPH_CLOSE, kernel)
 
 cv2.imshow('Input Image', image)
@@ -46,6 +52,7 @@ cv2.imshow('Opened Image', opened_image)
 cv2.imshow('Closed Image', closed_image)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
+```
 ## Output:
 ## Display the input Image
 
