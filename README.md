@@ -1,4 +1,4 @@
-## OPENING--AND-CLOSING
+## Ex 10 - OPENING AND CLOSING
 ## Aim
 To implement Opening and Closing using Python and OpenCV.
 
@@ -6,65 +6,57 @@ To implement Opening and Closing using Python and OpenCV.
 Anaconda - Python 3.7
 OpenCV
 ## Algorithm:
-## Step1:
-Import the necessary packages
+## Step 1:
+Import the required libraries.
 
-## Perform opening operation and display the result
+## Step 2:
+Create a text image using cv2.putText().
 
-## Step4:
-Similarly, perform closing operation and display the result
+## Step 3:
+Define a structuring element (kernel) for the morphological operations.
 
-## Step5:
-End the program
+## Step 4:
+Apply the Opening operation using cv2.morphologyEx() with the cv2.MORPH_OPEN flag.
+
+## Step 5:
+Apply the Closing operation using cv2.morphologyEx() with the cv2.MORPH_CLOSE flag.
 
 ## Program:
-Developed by :BALAJI J
-Register number : 212221243001
+Developed by : BALAJI J
+Reg.no :212221243001
 # Import the necessary packages
-import numpy as np
 import cv2
-import matplotlib.pyplot as plt
-
+import numpy as np
+image = np.zeros((300, 700), dtype="uint8")
 
 # Create the Text using cv2.putText
-img1=np.zeros((100,400), dtype='uint8')
-font=cv2.FONT_HERSHEY_SIMPLEX
-cv2.putText(img1,'DHONI',(5,70), font,2,(255),5,cv2.LINE_AA)
-plt.imshow(img1)
-plt.axis('off')
-
+cv2.putText(image, 'Opening & Closing', (30, 150), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 255, 255), 5)
 
 # Create the structuring element
-kernel=np.ones((5,5),np.uint8)
-kernel1=cv2.getStructuringElement(cv2.MORPH_CROSS,(7,7))
-
+kernel = np.ones((5, 5), np.uint8)
 
 # Use Opening operation
-image1=cv2.morphologyEx(img1,cv2.MORPH_OPEN,kernel)
-plt.imshow(image1)
-plt.axis("off")
-
-
+opened_image = cv2.morphologyEx(image, cv2.MORPH_OPEN, kernel)
 
 # Use Closing Operation
-image2=cv2.morphologyEx(img1,cv2.MORPH_CLOSE,kernel)
-plt.imshow(image2)
-plt.axis("off")
+closed_image = cv2.morphologyEx(image, cv2.MORPH_CLOSE, kernel)
+
+cv2.imshow('Input Image', image)
+cv2.imshow('Opened Image', opened_image)
+cv2.imshow('Closed Image', closed_image)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
 ## Output:
 ## Display the input Image
 
-![image](https://github.com/user-attachments/assets/03a66258-808c-47df-ac2c-0f3cfdbe2a29)
-
+![image](https://github.com/user-attachments/assets/42c99dcb-fc2d-4847-8be5-7262e4559678)
 
 ## Display the result of Opening
-
-![image](https://github.com/user-attachments/assets/40ab690f-93cd-468a-9661-7e26c8d3a178)
+![image](https://github.com/user-attachments/assets/da056158-8ae3-461a-baf0-dcbddb079a7d)
 
 
 ## Display the result of Closing
-
-![image](https://github.com/user-attachments/assets/930fc94d-9aca-4cc3-8ca8-ed7dc3fe0db2)
-
+![image](https://github.com/user-attachments/assets/b139e26a-df93-4efa-8ecc-2f747a8b713e)
 
 
 ## Result
